@@ -1,0 +1,235 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Game
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\GameRepository")
+ */
+class Game
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Title", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 255,
+     *      minMessage = "Your game title cannot be {{limit}}",
+     *      maxMessage = "Your first name cannot be longer than {{limit}}"
+     * )
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Genre", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 80,
+     *      minMessage = "Your game genre must be at least {{ limit }} characters long",
+     *      maxMessage = "Your game genre cannot be longer than {{ limit }} characters"
+     * )
+     */
+    private $genre;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ReleaseDate", type="date")
+     *
+     * @Assert\Date()
+     */
+    private $releaseDate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CopiesSold", type="integer")
+     *
+     *
+     */
+    private $copiesSold;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Developer", type="string", length=255)
+     */
+    private $developer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ImagePath", type="string", length=255)
+     */
+    private $imagePath;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Game
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     * @return Game
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string
+     */
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set releaseDate
+     *
+     * @param \DateTime $releaseDate
+     * @return Game
+     */
+    public function setReleaseDate($releaseDate)
+    {
+        $this->releaseDate = $releaseDate;
+
+        return $this;
+    }
+
+    /**
+     * Get releaseDate
+     *
+     * @return \DateTime
+     */
+    public function getReleaseDate()
+    {
+        return $this->releaseDate;
+    }
+
+    /**
+     * Set copiesSold
+     *
+     * @param integer $copiesSold
+     * @return Game
+     */
+    public function setCopiesSold($copiesSold)
+    {
+        $this->copiesSold = $copiesSold;
+
+        return $this;
+    }
+
+    /**
+     * Get copiesSold
+     *
+     * @return integer
+     */
+    public function getCopiesSold()
+    {
+        return $this->copiesSold;
+    }
+
+    /**
+     * Set developer
+     *
+     * @param string $developer
+     * @return Game
+     */
+    public function setDeveloper($developer)
+    {
+        $this->developer = $developer;
+
+        return $this;
+    }
+
+    /**
+     * Get developer
+     *
+     * @return string
+     */
+    public function getDeveloper()
+    {
+        return $this->developer;
+    }
+
+    /**
+     * Set imagePath
+     *
+     * @param string $imagePath
+     * @return Game
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+
+        return $this;
+    }
+
+    /**
+     * Get imagePath
+     *
+     * @return string 
+     */
+    public function getImagePath()
+    {
+        return $this->imagePath;
+    }
+}

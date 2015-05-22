@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h1>All the Games</h1>
+    <div class="games">
+    <ul id="list">
+        {% for game in games %}
+            <div class="title_pic">
+            <li>
+                <span><h3>{{ game.title }}</h3></span>
+                <img src="{{ asset(game.imagePath) }}" class="pic" alt="Nu Merge! >:| ">
+                <p class="text">{{ game.genre }} <br> {{ game.releaseDate|date('Y-m-d') }} <br> {{ game.developer }} </p>
+                <br>
+                <ul class="inner_list">
+                    <li><a href="{{ path('select', { 'id': game.id})}}"><i class="fa fa-eye"></i>View game info</a></li><br>
+                    <li><a href="{{ path('edit', { 'id': game.id})}}"><i class="fa fa-pencil"></i>Edit</a></li><br>
+                    <li><a href="{{ path('delete', { 'id': game.id})}}"><i class="fa fa-eraser"></i>Delete</a></li>
+
+                </ul>
+            </li>
+            </div>
+            <br>
+        {% endfor %}
+
+        {% endblock %}

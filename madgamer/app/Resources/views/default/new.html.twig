@@ -1,0 +1,13 @@
+{%  extends '::base.html.twig' %}
+
+
+{% block body %}
+<h1><i class="fa fa-long-arrow-down"></i>Insert new game data Here<i class="fa fa-long-arrow-down"></i></h1>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+    <a href="{{ path('show') }}"> <i class="fa fa-hand-o-left" id="hand">See all the games</i></a>
+
+{% endblock %}

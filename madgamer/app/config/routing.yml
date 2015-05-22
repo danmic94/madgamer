@@ -1,0 +1,33 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+index:
+    path: /
+    defaults:  { _controller: AppBundle:Default:index}
+
+
+show:
+    path: /show
+    defaults: { _controller: AppBundle:Default:show }
+
+new:
+    path: /new
+    defaults: { _controller: AppBundle:Default:create}
+
+edit:
+    path: /edit/{id}
+    defaults: { _controller: AppBundle:Default:edit}
+
+update:
+    path: /update/{id}
+    defaults: { _controller: AppBundle:Default:update }
+    requirements: { _method: post|put }
+
+select:
+    path: /select/{id}
+    defaults: { _controller: AppBundle:Default:select }
+
+delete:
+    path: /delete/{id}
+    defaults: { _controller: AppBundle:Default:delete }

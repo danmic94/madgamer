@@ -1,0 +1,18 @@
+{%  extends '::base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>{{ game.title }}</h1>
+
+    <ul class="info">
+        <img src="{{ asset(game.imagePath) }}" class="pic" alt="Nu Merge! >:| "></a>
+        <li>Genre: {{ game.genre }}</li>
+        <li>Release Year:{{ game.releaseDate|date('Y')  }}</li>
+        <li>Copies Sold: {{ game.copiesSold }}</li>
+        <li>Dev: {{ game.developer }}</li>
+    </ul>
+
+    <a href="{{ path('show') }}"> <i class="fa fa-hand-o-left" id="hand">See all the games</i></a>
+
+{%endblock%}
